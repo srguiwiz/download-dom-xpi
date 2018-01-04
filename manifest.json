@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Download Serialized DOM",
+  "description": "Download serialized DOM with a click, which should include changes within the page effected since loading e.g. by JavaScript.",
+  "version": "3.0.0",
+  "homepage_url": "https://github.com/srguiwiz/download-dom-xpi",
+  "icons": {
+    "48": "downloadserializeddom48.png",
+    "96": "downloadserializeddom96.png"
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+
+  "background": {
+    "scripts": ["main.js"]
+  },
+
+  "page_action": {
+    "default_icon": "downloadserializeddom48.png",
+    "default_title": "Download Serialized DOM",
+    "browser_style": true
+  },
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "downloads"
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "download.dom.id@nospam.nrvr.com",
+      "strict_min_version": "48.0"
+    }
+  }
+}

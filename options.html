@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+form table td {
+  border-right: solid 1em transparent;
+}
+form table td.description {
+  border-bottom: solid 1em transparent;
+  opacity: 0.6;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <form>
+      <table><tbody>
+        <tr>
+          <td>
+            <label for="onlyIfURIMatchesRegEx">Only If URI Matches Regular Expression</label>
+          </td><td>
+            <input type="text" id="onlyIfURIMatchesRegEx"/>
+          </td>
+        </tr><tr>
+          <td colspan="2" class="description">Show button only if URI matches regular expression.
+            Default is <code>^.+$</code> .</td>
+        </tr><tr>
+          <td>
+            <label for="showFileChooserDialog">Provide a File Chooser Dialog</label>
+          </td><td>
+            <input type="checkbox" id="showFileChooserDialog"/>
+          </td>
+        </tr><tr>
+          <td colspan="2" class="description">Whether to show a file chooser dialog for download.
+            Alternative is silent.</td>
+        </tr><tr>
+          <td>
+            <label for="resultNameSuffix">Result Name Suffix</label>
+          </td><td>
+            <input type="text" id="resultNameSuffix"/>
+          </td>
+        </tr><tr>
+          <td colspan="2" class="description">What to append to filename when downloading.
+            <br/>Default is <code>-result</code> . Expression <code>utc()</code> fills in UTC.</td>
+        </tr><tr>
+          <td>
+            <label for="ifConflictThenUniquify">If Conflict Then Uniquify</label>
+          </td><td>
+            <input type="radio" id="ifConflictThenUniquify" name="conflict" value="uniquify"/>
+          </td>
+        </tr><tr>
+          <td>
+            <label for="ifConflictThenOverwrite">If Conflict Then Overwrite</label>
+          </td><td>
+            <input type="radio" id="ifConflictThenOverwrite" name="conflict" value="overwrite"/>
+          </td>
+        </tr><tr>
+          <td colspan="2" class="description">Whether to uniquify or to overwrite if there is a
+            preexisting file of same name.</td>
+        </tr><tr>
+          <td style="text-align:right;">
+            Make these changes
+          </td><td>
+            <button id="ok">OK</button>
+          </td>
+        </tr>
+      </tbody></table>
+    </form>
+
+    <script src="options.js"></script>
+
+  </body>
+
+</html>
