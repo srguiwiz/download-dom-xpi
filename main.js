@@ -37,7 +37,7 @@ const defaultOnlyIfURIMatchesRegEx = "^.+$";
 var onlyIfURIMatchesRegEx = defaultOnlyIfURIMatchesRegEx;
 var onlyIfURIMatchesRegExp = new RegExp(onlyIfURIMatchesRegEx);
 var showFileChooserDialog = true;
-var resultNameSuffix = "-result"
+var resultNameSuffix = "-result-utc()"
 var ifConflictThen = "uniquify";
 
 const validIfConflictThenSet = new Set(["uniquify","overwrite"]);

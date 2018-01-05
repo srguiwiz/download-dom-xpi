@@ -3,7 +3,7 @@
 const defaultOnlyIfURIMatchesRegEx = "^.+$";
 
 var previousOnlyIfURIMatchesRegEx = defaultOnlyIfURIMatchesRegEx;
-var previousResultNameSuffix = "-result";
+var previousResultNameSuffix = "-result-utc()";
 
 function retrieveOptions() {
   function setCurrentChoice(got) {
@@ -21,7 +21,7 @@ function retrieveOptions() {
   var getting = browser.storage.local.get({
     "onlyIfURIMatchesRegEx":defaultOnlyIfURIMatchesRegEx,
     "showFileChooserDialog":true,
-    "resultNameSuffix":"-result",
+    "resultNameSuffix":"-result-utc()",
     "ifConflictThen":"uniquify",
   });
   getting.then(setCurrentChoice, onError);
