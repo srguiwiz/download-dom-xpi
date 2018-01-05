@@ -25,7 +25,7 @@
 //
 // ==============================================================================
 //
-// the main module of the save-back-to-file-from-dom Add-on
+// the main module of the Download Serialized DOM Add-on
 //
 // ==============================================================================
 //
@@ -175,8 +175,9 @@ function doIt(tab) {
       };
       var downloading = browser.downloads.download(options);
       downloading.then(function(id) {
-        browser.downloads.search({id:id}).then(function (downloadItem) {
-          console.log("started downloading DOM as " + downloadItem[0].filename);
+        browser.downloads.search({id:id}).then(function (downloadItems) {
+          // Firefox 57 gets here with the final filename after showing the file chooser
+          console.log("started downloading DOM as " + downloadItems[0].filename);
         }, onError);
       }, onError);
     }, onError);

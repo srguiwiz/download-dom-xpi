@@ -2,8 +2,8 @@
 
 "use strict";
 
-browser.runtime.onMessage.addListener(function (request) {
-  if (request.please === "nrvrDomSerialize") {
+browser.runtime.onMessage.addListener(function (message) {
+  if (message.please === "nrvrDomSerialize") {
     var documentAsString = null; // default
     try {
       var serializer = new XMLSerializer();
@@ -14,6 +14,6 @@ browser.runtime.onMessage.addListener(function (request) {
       return Promise.resolve({ documentAsString:documentAsString });
     }
   } else {
-    return Promise.resolve(Object.assign(request, { problem:"not understood" }));
+    return Promise.resolve(Object.assign(message, { problem:"not understood" }));
   }
 });

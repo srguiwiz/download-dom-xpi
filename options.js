@@ -6,17 +6,17 @@ var previousOnlyIfURIMatchesRegEx = defaultOnlyIfURIMatchesRegEx;
 var previousResultNameSuffix = "-result";
 
 function retrieveOptions() {
-  function setCurrentChoice(result) {
+  function setCurrentChoice(got) {
     document.querySelector("#onlyIfURIMatchesRegEx").value =
-      previousOnlyIfURIMatchesRegEx = result.onlyIfURIMatchesRegEx;
-    document.querySelector("#showFileChooserDialog").checked = result.showFileChooserDialog;
+      previousOnlyIfURIMatchesRegEx = got.onlyIfURIMatchesRegEx;
+    document.querySelector("#showFileChooserDialog").checked = got.showFileChooserDialog;
     document.querySelector("#resultNameSuffix").value =
-      previousResultNameSuffix = result.resultNameSuffix;
-    document.querySelector("#ifConflictThenUniquify").checked = result.ifConflictThen === "uniquify";
-    document.querySelector("#ifConflictThenOverwrite").checked = result.ifConflictThen === "overwrite";
+      previousResultNameSuffix = got.resultNameSuffix;
+    document.querySelector("#ifConflictThenUniquify").checked = got.ifConflictThen === "uniquify";
+    document.querySelector("#ifConflictThenOverwrite").checked = got.ifConflictThen === "overwrite";
   }
   function onError(error) {
-    console.log(`Error: ${error}`);
+    console.error(`${error}`);
   }
   var getting = browser.storage.local.get({
     "onlyIfURIMatchesRegEx":defaultOnlyIfURIMatchesRegEx,
