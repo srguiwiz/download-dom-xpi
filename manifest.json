@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Download Serialized DOM",
   "description": "Download serialized DOM with a click, which should include changes within the page effected since loading e.g. by JavaScript.",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "homepage_url": "https://github.com/srguiwiz/download-dom-xpi",
   "icons": {
     "48": "downloadserializeddom48.png",

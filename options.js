@@ -14,6 +14,7 @@ function retrieveOptions() {
       previousResultNameSuffix = got.resultNameSuffix;
     document.querySelector("#ifConflictThenUniquify").checked = got.ifConflictThen === "uniquify";
     document.querySelector("#ifConflictThenOverwrite").checked = got.ifConflictThen === "overwrite";
+    document.querySelector("#respectHTMLIsNotXML").checked = got.respectHTMLIsNotXML;
   }
   function onError(error) {
     console.error(`${error}`);
@@ -23,6 +24,7 @@ function retrieveOptions() {
     "showFileChooserDialog":true,
     "resultNameSuffix":"-result-utc()",
     "ifConflictThen":"uniquify",
+    "respectHTMLIsNotXML":true,
   });
   getting.then(setCurrentChoice, onError);
 }
@@ -73,6 +75,7 @@ function storeOptions(e) {
     ifConflictThen: document.querySelector("#ifConflictThenOverwrite").checked
       ? "overwrite"
       : "uniquify",
+    respectHTMLIsNotXML: document.querySelector("#respectHTMLIsNotXML").checked,
   });
 }
 document.querySelector("form").addEventListener("submit", storeOptions);
@@ -89,5 +92,7 @@ function onStorageChange(changes, area) {
     document.querySelector("#ifConflictThenUniquify").checked = changes.ifConflictThen.newValue === "uniquify";
     document.querySelector("#ifConflictThenOverwrite").checked = changes.ifConflictThen.newValue === "overwrite";
   }
+  if (changedItems.has("respectHTMLIsNotXML"))
+    document.querySelector("#respectHTMLIsNotXML").checked = changes.respectHTMLIsNotXML.newValue;
 }
 browser.storage.onChanged.addListener(onStorageChange);
