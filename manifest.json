@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Download Serialized DOM",
   "description": "Download serialized DOM with a click, which should include changes within the page effected since loading e.g. by JavaScript.",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "homepage_url": "https://github.com/srguiwiz/download-dom-xpi",
   "icons": {
     "48": "downloadserializeddom48.png",
@@ -34,7 +34,7 @@
   "applications": {
     "gecko": {
       "id": "download.dom.id@nospam.nrvr.com",
-      "strict_min_version": "48.0"
+      "strict_min_version": "57.0"
     }
   }
 }
