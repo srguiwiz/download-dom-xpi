@@ -167,8 +167,10 @@ function doIt(tab) {
     );
     sentMessage.then(function (response) {
       //console.log("got response", response);
+      var contentType = (response.contentType || "").split(/\s*;\s*/)[0] || "text/plain"; // pick before ;
+      //console.log(`got contentType ${response.contentType}, using ${contentType}`);
       var blob = new Blob([response.documentAsString], {
-        type: 'text/plain'
+        type: contentType
       });
       var url = URL.createObjectURL(blob);
       var options = {

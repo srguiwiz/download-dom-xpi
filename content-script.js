@@ -9,6 +9,7 @@ var lineBreakRegExp = /(\r\n|\r|\n)/
 browser.runtime.onMessage.addListener(function (message) {
   if (message.please === "nrvrDomSerialize") {
     var documentAsString = null; // default
+    var contentType = null; // default
     try {
       var documentToSerialize = window.top.document;
       var documentElement = documentToSerialize.documentElement;
@@ -35,10 +36,11 @@ browser.runtime.onMessage.addListener(function (message) {
           }
           break;
       }
+      contentType = documentToSerialize.contentType;
     } catch (e) {
       console.error(e);
     } finally {
-      return Promise.resolve({ documentAsString:documentAsString });
+      return Promise.resolve({ documentAsString, contentType });
     }
   } else {
     return Promise.resolve(Object.assign(message, { problem:"not understood" }));
